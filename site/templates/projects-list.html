@@ -1,0 +1,12 @@
+<h1>Projects</h1>
+$if(projects)$
+    <ul class="projects-list">
+    $for(projects)$
+        <li>
+            <a href="$url$">$title$</a>
+        </li>
+    $endfor$
+    </ul>
+$else$
+    <p>No projects available.</p>
+$endif$

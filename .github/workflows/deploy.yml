@@ -1,0 +1,25 @@
+name: Deploy Site
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Haskell
+        uses: haskell/actions/setup@v2
+      
+      - name: Build Site
+        run: |
+          cabal update
+          cabal build
+          cabal run rokokot-site build
+      
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site

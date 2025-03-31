@@ -1,0 +1,10 @@
+_site/
+.stack-work/
+.cabal-sandbox/
+cabal.sandbox.config
+*.hi
+*.o
+*.cabal
+dist/
+dist-newstyle/
+.stack-work/
