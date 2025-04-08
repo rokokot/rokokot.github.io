@@ -1,14 +1,14 @@
 {-# LANGUAGE OverloadedStrings #-}
 
+
 module Main where
 
+import           Data.Monoid ()
 import           Hakyll
 
--- Main Site Generation
 main :: IO ()
 main = hakyll $ do
-    -- Static Files
-    match ("images/*" .||. "files/*") $ do
+    match ("images/*" .||. "files/*" .||. "static/*/*") $ do
         route   idRoute
         compile copyFileCompiler
 
@@ -16,40 +16,49 @@ main = hakyll $ do
         route   idRoute
         compile compressCssCompiler
 
-    -- Templates
     match "templates/*" $ compile templateBodyCompiler
 
-    -- Pages
-    match (fromList ["index.md", "about.md", "research.md", "projects.md", "contact.md"]) $ do
+    match (fromList ["index.md", "about.md", "research.md", "teaching.md", "contact.md"]) $ do
         route   $ setExtension "html"
-        compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/default.html" siteCtx
-            >>= relativizeUrls
+        compile $ do
+            projects <- loadAll "projects/*"
+            let pageCtx = 
+                    listField "projects" siteCtx (return projects) `mappend`
+                    siteCtx
+            pandocCompiler
+                >>= loadAndApplyTemplate "templates/default.html" pageCtx
+                >>= relativizeUrls
 
-    -- Projects
     match "projects/*" $ do
         route $ setExtension "html"
-        compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/project.html" siteCtx
-            >>= loadAndApplyTemplate "templates/default.html" siteCtx
-            >>= relativizeUrls
+        compile $ do
+            projects <- loadAll "projects/*"
+            let projCtx = 
+                    listField "projects" siteCtx (return projects) `mappend`
+                    siteCtx
+            pandocCompiler
+                >>= loadAndApplyTemplate "templates/project.html" projCtx
+                >>= loadAndApplyTemplate "templates/default.html" projCtx
+                >>= relativizeUrls
 
-    -- Create Projects Index
+
     create ["projects.html"] $ do
         route idRoute
         compile $ do
             projects <- loadAll "projects/*"
             let projectsCtx =
                     listField "projects" siteCtx (return projects) `mappend`
+                    constField "title" "Projects" `mappend`
                     siteCtx
-
             makeItem ""
                 >>= loadAndApplyTemplate "templates/projects-list.html" projectsCtx
                 >>= loadAndApplyTemplate "templates/default.html" projectsCtx
                 >>= relativizeUrls
 
--- Site-wide Context with Custom Metadata
 siteCtx :: Context String
 siteCtx =
     constField "site_name" "Robin Kokot" `mappend`
+    constField "university" "KU Leuven" `mappend`
+    constField "email" "robin.edu.hr@gmail.edu" `mappend`
+    constField "github_username" "rokokot" `mappend`
     defaultContext

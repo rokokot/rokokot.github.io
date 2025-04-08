@@ -5,15 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>$site_name$ - $title$</title>
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/academic.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <nav class="navbar">
         <a href="/" class="logo">$site_name$</a>
-        <ul class="main-nav">
+        <div class="navbar-toggle" id="navbar-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="main-nav" id="main-nav">
             <li><a href="/about.html" class="nav-links">About</a></li>
             <li><a href="/research.html" class="nav-links">Research</a></li>
             <li><a href="/projects.html" class="nav-links">Projects</a></li>
-            <li><a href="/contact.html" class="nav-links">Contact</a></li>
+            <li><a href="/files/CV.pdf" class="nav-links">CV</a></li>
         </ul>
     </nav>
 
@@ -22,7 +27,28 @@
     </main>
 
     <footer>
-        <p>&copy; $site_name$ 2024</p>
+        <div class="footer-content">
+            <div class="footer-info">
+                <p>$department$</p>
+                <p>$university$</p>
+                <p>Email: <a href="mailto:$email$">$email$</a></p>
+            </div>
+            <div class="footer-social">
+                <a href="https://github.com/rokokot" title="GitHub" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                $endif$
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2025 $site_name$</p>
+            </div>
+        </div>
     </footer>
+    
+    <script>
+        document.getElementById('navbar-toggle').addEventListener('click', function() {
+            document.getElementById('main-nav').classList.toggle('active');
+        });
+    </script>
 </body>
 </html>

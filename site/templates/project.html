@@ -1,4 +1,41 @@
-<div class="project">
-  <h2>$title$</h2>
-  $body$
-</div>
+<article class="project">
+    <h1 class="project-title">$title$</h1>
+    
+    <div class="project-meta">
+        $if(dates)$
+        <p class="project-dates">$dates$</p>
+        $endif$
+        
+        $if(funding)$
+        <p class="project-funding"><strong>Funding:</strong> $funding$</p>
+        $endif$
+        
+        $if(collaborators)$
+        <div class="project-collaborators">
+            <h3>Collaborators</h3>
+            <p>$collaborators$</p>
+        </div>
+        $endif$
+    </div>
+    
+    $if(image)$
+    <div class="project-image">
+        <img src="$image$" alt="$if(image_alt)$$image_alt$$else$Image for $title$$endif$">
+    </div>
+    $endif$
+    
+    <div class="project-content">
+        $body$
+    </div>
+    
+    $if(publications)$
+    <div class="project-publications">
+        <h3>Related Publications</h3>
+        <ul>
+            $for(publications)$
+            <li><a href="$url$">$title$</a></li>
+            $endfor$
+        </ul>
+    </div>
+    $endif$
+</article>

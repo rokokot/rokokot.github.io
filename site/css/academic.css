@@ -1,0 +1,120 @@
+.profile-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 2em;
+  margin-bottom: 3em;
+}
+
+.profile-photo {
+  border-radius: 50%;
+  max-width: 220px;
+  margin: 0 auto;
+}
+
+.profile-bio {
+  line-height: 1.6;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 2em;
+  padding: 1em;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+
+.filter-item {
+  margin-right: 2em;
+  margin-bottom: 1em;
+}
+
+.filter-select {
+  padding: 0.5em;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.research-interests {
+  margin-bottom: 3em;
+}
+
+.research-item {
+  margin-bottom: 3em;
+}
+
+.news-item {
+  margin-bottom: 1.5em;
+  padding-bottom: 1.5em;
+  border-bottom: 1px solid #eee;
+}
+
+.news-date {
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5em;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.footer-social {
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  font-size: 1.5em;
+}
+
+.navbar-toggle {
+  display: none;
+  cursor: pointer;
+  font-size: 1.5em;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+      flex-direction: column;
+  }
+  
+  .navbar-toggle {
+      display: block;
+      align-self: flex-end;
+      position: absolute;
+      top: 1em;
+      right: 1em;
+  }
+  
+  .main-nav {
+      display: none;
+      width: 100%;
+      flex-direction: column;
+      margin-top: 1em;
+  }
+  
+  .main-nav.active {
+      display: flex;
+  }
+  
+  .profile-section {
+      grid-template-columns: 1fr;
+  }
+  
+  .footer-content {
+      text-align: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .profile-section {
+      grid-template-columns: 250px 1fr;
+  }
+  
+  .footer-content {
+      grid-template-columns: 1fr 1fr 1fr;
+  }
+}
