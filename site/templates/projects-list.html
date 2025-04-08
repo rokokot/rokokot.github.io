@@ -1,12 +1,26 @@
 <h1>Projects</h1>
 $if(projects)$
-    <ul class="projects-list">
+    <div class="projects-grid">
     $for(projects)$
-        <li>
-            <a href="$url$">$title$</a>
-        </li>
+        <div class="project-item">
+            <h2><a href="$url$">$title$</a></h2>
+            $if(dates)$
+            <div class="project-dates">$dates$</div>
+            $endif$
+            $if(image)$
+            <div class="project-image">
+                <img src="$image$" alt="$if(image_alt)$$image_alt$$else$Image of $title$$endif$">
+            </div>
+            $endif$
+            <div class="project-description">
+                $if(description)$
+                <p>$description$</p>
+                $endif$
+            </div>
+            <a href="$url$" class="read-more">Read more →</a>
+        </div>
     $endfor$
-    </ul>
+    </div>
 $else$
-    <p>No projects available.</p>
+    <p>No projects available yet.</p>
 $endif$

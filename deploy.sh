@@ -1,34 +1,35 @@
 #!/bin/bash
 
 set -e
+echo "Building website..."
 
-echo "Building site..."
+cabal build
+cabal run rokokot-site build
 
-ghc --make site.hs
-./site clean
-./site build
-
-echo "storing files in temporary directory..."
+echo "Storing files in temp..."
 mkdir -p _deploy
-
-echo "storing build in temporary directory..."
 cp -R _site/* _deploy/
 
-echo "preparing for deployment"
+echo "Preparing for deployment"
 git checkout -B gh-pages
 
-git rm -rf
+echo "Clearing previous deployment..."
+git rm -rf --ignore-unmatch index.html about.html research.html teaching.html publications.html projects.html css images files static
 
-echo "adding files to git"
+echo "Adding new files to git"
+cp -r _deploy/* .
 git add .
 
-echo "commiting changes.."
-git commit -m "Deploy site $(date)"
+echo "Committing changes..."
+git commit -m "deploy site $(date)"
 
-echo "pushing.."
+echo "Pushing to GitHub Pages..."
 git push -f origin gh-pages
 
-echo "checkout main..."
+echo "Checking out main branch..."
 git checkout main
 
-echo "complete! ok"
+echo "Cleaning up temporary files..."
+rm -rf _deploy
+
+echo "complete! site is now live."

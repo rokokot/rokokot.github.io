@@ -18,7 +18,7 @@ main = hakyll $ do
 
     match "templates/*" $ compile templateBodyCompiler
 
-    match (fromList ["index.md", "about.md", "research.md", "teaching.md", "contact.md"]) $ do
+    match (fromList ["index.md", "about.md", "research.md", "contact.md"]) $ do
         route   $ setExtension "html"
         compile $ do
             projects <- loadAll "projects/*"
@@ -40,6 +40,10 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/project.html" projCtx
                 >>= loadAndApplyTemplate "templates/default.html" projCtx
                 >>= relativizeUrls
+                
+    match "js/*" $ do
+        route idRoute
+        compile copyFileCompiler
 
 
     create ["projects.html"] $ do

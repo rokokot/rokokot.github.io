@@ -1,16 +1,16 @@
-## Bok
+#
 
-<!--
-**rokii3/rokii3** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Source code for rokokot.github.io.
 
-Here are some ideas to get you started:
+## Toolstack
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+- [Haskell Stack](https://docs.haskellstack.org/) or [GHCup](https://www.haskell.org/ghcup/)
+- Cabal
+
+### Local Development
+
+1. Clone this repository:
+
+2. Build the project: `cabal build`
+3. Run the development server: `cabal run rokokot.github.io`
+4. Open `http://localhost:8000` in your browser

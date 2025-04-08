@@ -1,4 +1,4 @@
-name: Deploy Site
+name: Deploy Website
 on:
   push:
     branches: [main]
@@ -11,6 +11,9 @@ jobs:
       
       - name: Setup Haskell
         uses: haskell/actions/setup@v2
+        with:
+          ghc-version: '9.4'
+          cabal-version: '3.6'
       
       - name: Build Site
         run: |
