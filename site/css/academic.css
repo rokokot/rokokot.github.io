@@ -1,58 +1,118 @@
-.profile-section {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 2em;
-  margin-bottom: 3em;
+:root {
+  --primary-color: #bccad6;
+  --secondary-color: #8d9db6;
+  --accent-color: #667292;
+  --text-color: #172430;
+  --background-color: #f0f4f8;
+  --max-width: 960px;
 }
 
+main h1:first-child {
+  margin-top: 0;
+  color: var(--primary-color);
+  font-size: 2.5em;
+  font-weight: 300;
+  margin-bottom: 0.2em;
+}
+
+main h1 + p strong {
+  font-size: 1.2em;
+  color: var(--secondary-color);
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+main > p:nth-of-type(1), 
+main > p:nth-of-type(2) {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-bottom: 2em;
+}
+
+main h2 {
+  border-bottom: 1px solid var(--secondary-color);
+  padding-bottom: 0.3em;
+  margin-top: 2em;
+  color: var(--primary-color);
+}
+
+main h2 + p strong {
+  color: var(--secondary-color);
+  display: block;
+  margin: 1em 0 0.5em 0;
+}
+
+main h3 {
+  color: var(--accent-color);
+  margin-top: 1.5em;
+}
+
+main ul {
+  margin-left: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+main ul li {
+  margin-bottom: 0.5em;
+}
+
+main a.button, 
+main a[href*="research.html"] {
+  display: inline-block;
+  margin-top: 1em;
+  padding: 0.6em 1.2em;
+  background-color: var(--accent-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+main a.button:hover, 
+main a[href*="research.html"]:hover {
+  background-color: var(--primary-color);
+  text-decoration: none;
+}
+
+/* Project styles */
+.project-title {
+  font-size: 2em;
+  color: var(--primary-color);
+  margin-bottom: 0.5em;
+}
+
+.project-dates {
+  color: var(--secondary-color);
+  font-style: italic;
+  margin-bottom: 1.5em;
+}
+
+.project-collaborators {
+  margin-bottom: 2em;
+}
+
+.project-collaborators h3 {
+  font-size: 1.1em;
+  margin-bottom: 0.3em;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  main h1:first-child {
+    font-size: 2em;
+  }
+  
+  main > p:nth-of-type(1), 
+  main > p:nth-of-type(2) {
+    font-size: 1em;
+  }
+}
+
+/* Previous academic.css styles you might want to keep */
 .profile-photo {
   border-radius: 50%;
   max-width: 220px;
   margin: 0 auto;
-}
-
-.profile-bio {
-  line-height: 1.6;
-}
-
-.filters {
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 2em;
-  padding: 1em;
-  background-color: #f5f5f5;
-  border-radius: 4px;
-}
-
-.filter-item {
-  margin-right: 2em;
-  margin-bottom: 1em;
-}
-
-.filter-select {
-  padding: 0.5em;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  background-color: white;
-}
-
-.research-interests {
-  margin-bottom: 3em;
-}
-
-.research-item {
-  margin-bottom: 3em;
-}
-
-.news-item {
-  margin-bottom: 1.5em;
-  padding-bottom: 1.5em;
-  border-bottom: 1px solid #eee;
-}
-
-.news-date {
-  font-weight: bold;
-  color: var(--primary-color);
 }
 
 .footer-content {
@@ -78,119 +138,35 @@
 
 @media screen and (max-width: 768px) {
   .navbar {
-      flex-direction: column;
+    flex-direction: column;
   }
   
   .navbar-toggle {
-      display: block;
-      align-self: flex-end;
-      position: absolute;
-      top: 1em;
-      right: 1em;
+    display: block;
+    align-self: flex-end;
+    position: absolute;
+    top: 1em;
+    right: 1em;
   }
   
   .main-nav {
-      display: none;
-      width: 100%;
-      flex-direction: column;
-      margin-top: 1em;
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    margin-top: 1em;
   }
   
   .main-nav.active {
-      display: flex;
-  }
-  
-  .profile-section {
-      grid-template-columns: 1fr;
+    display: flex;
   }
   
   .footer-content {
-      text-align: center;
+    text-align: center;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .profile-section {
-      grid-template-columns: 250px 1fr;
-  }
-  
   .footer-content {
-      grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
-.contact-section {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2em;
-  margin-bottom: 3em;
-}
-
-.contact-links ul {
-  list-style: none;
-  padding: 0;
-}
-
-.contact-links li {
-  margin-bottom: 0.5em;
-}
-
-.contact-links a {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5em;
-}
-
-.cv-section {
-  margin-bottom: 2em;
-  padding-bottom: 1em;
-  border-bottom: 1px solid #eee;
-}
-
-.cv-date {
-  font-weight: bold;
-  color: var(--primary-color);
-}
-
-.cv-position {
-  font-weight: 500;
-  margin-bottom: 0.3em;
-}
-
-.cv-institution {
-  font-style: italic;
-  margin-bottom: 0.5em;
-}
-
-
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1em 0;
-}
-
-th, td {
-  padding: 0.75em;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
-
-th {
-  background-color: #f5f5f5;
-  font-weight: 500;
-}
-
-.highlight-box {
-  background-color: #f0f7ff;
-  border-left: 4px solid var(--accent-color);
-  padding: 1em;
-  margin: 1.5em 0;
-  border-radius: 0 4px 4px 0;
-}
-
-@media screen and (min-width: 768px) {
-  .contact-section {
-      grid-template-columns: 3fr 2fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }

@@ -21,12 +21,9 @@ main = hakyll $ do
 
     match "site/templates/*" $ compile templateBodyCompiler
 
-    -- Create metadata versions of project pages
     match ("site/projects/*" .&&. complement "site/projects/TEMPLATE.md") $ version "meta" $ do
-        route $ gsubRoute "site/" (const "") `composeRoutes` setExtension "html"
         compile getResourceBody
 
-    -- Regular pages
     match (fromList ["site/index.md", "site/about.md", "site/research.md", "site/contact.md"]) $ do
         route   $ gsubRoute "site/" (const "") `composeRoutes` setExtension "html"
         compile $ do
@@ -38,9 +35,8 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "site/templates/default.html" pageCtx
                 >>= relativizeUrls
 
-    -- Project pages
     match ("site/projects/*" .&&. complement "site/projects/TEMPLATE.md") $ do
-        route $ gsubRoute "site/" (const "") `composeRoutes` setExtension "html"
+        route $ gsubRoute "site/" (const "projects/") `composeRoutes` setExtension "html"
         compile $ do
             projects <- loadAll ("site/projects/*" .&&. hasVersion "meta")
             let projCtx = 
@@ -51,7 +47,6 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "site/templates/default.html" projCtx
                 >>= relativizeUrls
 
-    -- Projects index
     create ["projects.html"] $ do
         route idRoute
         compile $ do

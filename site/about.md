@@ -4,44 +4,28 @@ title: About
 
 ## About Me
 
-<div class="profile-section">
+### Academic Background
 
-    <div class="profile-info">
-        <h2>Academic Background</h2>
-        
-        <p>I am a graduate student at the Faculty of Engineering Science. I work on natural language processing, multimodal data analysis, and efficient machine learning for resource-constrained environments.</p>
-        
-        <p>I received my M.A. in Philosophy from KU Leuven in 2024.</p>
-        
-        <h2>Research Interests</h2>
-        
-        <p>My research focuses on creating more efficient and interpretable machine learning models. Specific areas of interest include:</p>
-        
-        <ul>
-            <li>Multimodal deep learning architectures</li>
-            <li>Efficient neural networks for edge devices</li>
-            <li>Interpretable and explainable AI</li>
-            <li>Transfer learning and domain adaptation</li>
-            <li>Applications of AI in healthcare and sustainability</li>
-        </ul>
-    </div>
-</div>
+I am a graduate student at the Faculty of Engineering Science. I work on natural language processing, multimodal data analysis, and efficient machine learning for resource-constrained environments.
+
+I received my M.A. in Philosophy from KU Leuven in 2024.
+
+### Research Interests
+
+My research focuses on creating more efficient and interpretable machine learning models. Specific areas of interest include:
+
+- Multimodal deep learning architectures
+- Efficient neural networks for edge devices
+- Interpretable and explainable AI
+- Transfer learning and domain adaptation
+- Applications of AI in healthcare and sustainability
 
 ## Professional Activities
 
-<div class="professional-activities">
+### Service
 
-    <h3>Service</h3>
-    
-    <ul>
-        <li>KU Leuven Student Council</li>
-    </ul>
-</div>
+- KU Leuven Student Council
 
 ## Contact Information
 
-<div class="contact-info">
-
-    <p><strong>Email:</strong> <a href="mailto:robin.edu.hr@gmail.com"></p>
-    
-</div>
+**Email:** robin.edu.hr@gmail.com

@@ -6,44 +6,23 @@ title: Research
 
 ## Research Interests
 
-<div class="research-interests">
+My research lies in natural language processing and multimodal machine learning.
 
-    <p>My research lies ... .</p>
+Specific areas of interest include:
 
-    <p>Specific areas of interest include:</p>
-    
-    <ul>
-        <li><strong>TBA.</li>
-    </ul>
-</div>
+- Multimodal deep learning architectures
+- Efficient neural networks for edge devices
+- Interpretable and explainable AI
+- Transfer learning and domain adaptation
 
 ## Current Projects
 
-<div class="research-projects">
+### Question Type and Linguistic Complexity Signals
+**2024 - Present**
 
-    <div class="research-project">
-        <div class="project-header">
-            <div>
-                <h3 class="project-title">Question Type and Linguistic Complexity Signals</h3>
-            </div>
-            <div class="project-dates">2024 - Present</div>
-        </div>
-        
-        <div class="project-description">
-            <p>This project focuses on ...</p>
-        </div>
-    </div>
-    
-    <div class="research-project">
-        <div class="project-header">
-            <div>
-                <h3 class="project-title">PictoNMT: Multimodal Picto-to-Text Machine Translation</h3>
-            </div>
-            <div class="project-dates">2025 - Present</div>
-        </div>
-        
-        <div class="project-description">
-            <p>This project ....</p>
-        </div>
-    </div>
-</div>
+This project focuses on analyzing patterns in question structures across languages and how linguistic complexity affects comprehension and response generation.
+
+### PictoNMT: Multimodal Picto-to-Text Machine Translation
+**2025 - Present**
+
+This project explores novel techniques for translating pictographic communication systems into natural language text, with applications for assistive technology.

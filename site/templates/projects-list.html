@@ -3,7 +3,7 @@ $if(projects)$
     <div class="projects-grid">
     $for(projects)$
         <div class="project-item">
-            <h2><a href="$url$">$title$</a></h2>
+            <h2><a href="/projects/$title$.html">$title$</a></h2>
             $if(dates)$
             <div class="project-dates">$dates$</div>
             $endif$
@@ -13,11 +13,9 @@ $if(projects)$
             </div>
             $endif$
             <div class="project-description">
-                $if(description)$
-                <p>$description$</p>
-                $endif$
+                <p>$if(description)$$description$$else$Learn more about this research project.$endif$</p>
             </div>
-            <a href="$url$" class="read-more">Read more →</a>
+            <a href="/projects/$title$.html" class="read-more">Read more →</a>
         </div>
     $endfor$
     </div>
