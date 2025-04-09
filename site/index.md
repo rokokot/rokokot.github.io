@@ -4,8 +4,7 @@ title: Home
 
 # Robin Kokot
 
-**Graduate student**  
-Faculty of Engineering Science
+I am a graduate student in Natural Language Processing and Computational Linguistics. 
 
 ## News
 
