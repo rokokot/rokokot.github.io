@@ -21,6 +21,10 @@ main = hakyll $ do
 
     match "site/templates/*" $ compile templateBodyCompiler
 
+    match "site/static/**" $ do
+        route   (gsubRoute "site/" (const ""))
+        compile copyFileCompiler
+
     match ("site/projects/*" .&&. complement "site/projects/TEMPLATE.md") $ version "meta" $ do
         compile getResourceBody
 
@@ -59,6 +63,7 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "site/templates/projects-list.html" projectsCtx
                 >>= loadAndApplyTemplate "site/templates/default.html" projectsCtx
                 >>= relativizeUrls
+
 
 siteCtx :: Context String
 siteCtx =

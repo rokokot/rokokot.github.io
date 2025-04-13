@@ -64,7 +64,7 @@ plugins:
   - mkdocstrings:
       handlers:
         python:
-          selection:
+          options:
             docstring_style: google
   - git-revision-date-localized:
       enable_creation_date: true
@@ -90,14 +90,7 @@ extra_javascript:
 nav:
   - Home: index.md
   - Research Paper:
-    - Abstract: paper/abstract.md
-    - Introduction: paper/introduction.md
-    - Background: paper/background.md
-    - Experimental setup: paper/experimental_setup.md
-    - Traditional ML baseline: paper/MLbaselines.md
-    - PTMLLMs: paper/PTMLLMs.md
-    - Results: paper/results.md
-    - Conclusion: paper/conclusion.md
+    - Paper PDF: paper/paper.md
   - Experiments:
     - Overview: experiments/overview.md
     - Baseline Models: experiments/baseline_models.md
