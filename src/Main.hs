@@ -4,9 +4,24 @@ module Main where
 
 import           Data.Monoid ()
 import           Hakyll
+import           Text.Pandoc.Options
+import           Text.Pandoc.Extensions
+
 
 main :: IO ()
 main = hakyll $ do
+
+    match "site/index.html" $ do
+        route $ gsubRoute "site/" (const "")
+        compile $ do
+            projects <- loadAll ("site/projects/*" .&&. hasVersion "meta")
+            let pageCtx = 
+                    listField "projects" siteCtx (return projects) `mappend`
+                    siteCtx
+            getResourceBody
+                >>= loadAndApplyTemplate "site/templates/default.html" pageCtx
+                >>= relativizeUrls
+
     match ("site/images/*" .||. "site/files/*" .||. "site/static/*/*") $ do
         route   (gsubRoute "site/" (const ""))
         compile copyFileCompiler
@@ -28,14 +43,14 @@ main = hakyll $ do
     match ("site/projects/*" .&&. complement "site/projects/TEMPLATE.md") $ version "meta" $ do
         compile getResourceBody
 
-    match (fromList ["site/index.md", "site/research.md", "site/contact.md"]) $ do
+    match (fromList ["site/research.md", "site/contact.md"]) $ do
         route   $ gsubRoute "site/" (const "") `composeRoutes` setExtension "html"
         compile $ do
             projects <- loadAll ("site/projects/*" .&&. hasVersion "meta")
             let pageCtx = 
                     listField "projects" siteCtx (return projects) `mappend`
                     siteCtx
-            pandocCompiler
+            customPandocCompiler
                 >>= loadAndApplyTemplate "site/templates/default.html" pageCtx
                 >>= relativizeUrls
 
@@ -46,7 +61,7 @@ main = hakyll $ do
             let projCtx = 
                     listField "projects" siteCtx (return projects) `mappend`
                     siteCtx
-            pandocCompiler
+            customPandocCompiler
                 >>= loadAndApplyTemplate "site/templates/project.html" projCtx
                 >>= loadAndApplyTemplate "site/templates/default.html" projCtx
                 >>= relativizeUrls
@@ -64,12 +79,24 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "site/templates/default.html" projectsCtx
                 >>= relativizeUrls
 
-
 siteCtx :: Context String
 siteCtx =
     constField "site_name" "Robin Kokot" `mappend`
     constField "university" "KU Leuven" `mappend`
-    constField "department" "Faculty of Engineering Science" `mappend`
     constField "email" "robin.edu.hr@gmail.edu" `mappend`
     constField "github_username" "rokokot" `mappend`
     defaultContext
+
+customPandocCompiler :: Compiler (Item String)
+customPandocCompiler =
+    let readerOptions = defaultHakyllReaderOptions
+            { readerExtensions = enableExtension Ext_raw_html $ 
+                                enableExtension Ext_raw_tex $
+                                readerExtensions defaultHakyllReaderOptions
+            }
+        writerOptions = defaultHakyllWriterOptions
+            { writerExtensions = enableExtension Ext_raw_html $ 
+                                enableExtension Ext_raw_tex $
+                                writerExtensions defaultHakyllWriterOptions
+            }
+    in pandocCompilerWith readerOptions writerOptions
