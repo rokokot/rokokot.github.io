@@ -6,7 +6,7 @@ title: About
 
 ### Academic Background
 
-I am a graduate student at the Faculty of Engineering Science. I work on natural language processing, multimodal data analysis, and efficient machine learning for resource-constrained environments.
+I am a graduate student at the Faculty of Engineering Science. I work on natural language processing, multimodal data analysis, and efficient machine learning for resource-constrained environment.
 
 I received my M.A. in Philosophy from KU Leuven in 2024.
 

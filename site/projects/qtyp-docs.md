@@ -1,1 +1,1 @@
-[View Full Project Documentation](/static/qtc-docs/)
+[View Full Project Documentation](/site/static/MQR-docs)
