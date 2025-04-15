@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e  # Exit on any error
+set -e
 
 echo "Building MkDocs documentation..."
 source .venv/bin/activate
