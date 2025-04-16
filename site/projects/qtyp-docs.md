@@ -1,1 +1,0 @@
-[View Full Project Documentation](/site/static/MQR-docs)
