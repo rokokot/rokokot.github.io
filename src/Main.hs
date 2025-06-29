@@ -83,7 +83,7 @@ siteCtx :: Context String
 siteCtx =
     constField "site_name" "Robin Kokot" `mappend`
     constField "university" "KU Leuven" `mappend`
-    constField "email" "robin.edu.hr@gmail.edu" `mappend`
+    constField "email" "robin.edu.hr@gmail.com" `mappend`
     constField "github_username" "rokokot" `mappend`
     defaultContext
 
