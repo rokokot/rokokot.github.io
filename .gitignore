@@ -8,3 +8,11 @@ cabal.sandbox.config
 dist/
 dist-newstyle/
 .stack-work/
+_cache/
+*.log
+Thumbs.db
+*.sublime-*
+.idea/
+*.swp
+*.swp
+.vscode/
