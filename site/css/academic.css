@@ -1,9 +1,9 @@
 :root {
-  --primary-color: #bccad6;
-  --secondary-color: #8d9db6;
-  --accent-color: #667292;
+  --primary-color: #cfcfcf;
+  --secondary-color: #6a6e6cbd;
+  --accent-color: #6f7279;
   --text-color: #172430;
-  --background-color: #f0f4f8;
+  --background-color: #f5f5f5;
   --max-width: 960px;
 }
 
@@ -50,7 +50,7 @@ h2 {
 }
 
 h3 {
-  color: var(--secondary-color);
+  color: var(--text-color);
   font-size: 1.2em;
   margin-top: 1.5em;
   margin-bottom: 0.5em;
@@ -270,7 +270,7 @@ footer a {
 
 .profile-content {
   flex: 2;
-  min-width: 300px;
+  min-width: 450px;
 }
 
 .project {

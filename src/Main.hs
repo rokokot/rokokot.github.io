@@ -43,7 +43,7 @@ main = hakyll $ do
     match ("site/projects/*" .&&. complement "site/projects/TEMPLATE.md") $ version "meta" $ do
         compile getResourceBody
 
-    match (fromList ["site/research.md", "site/contact.md"]) $ do
+    match ("site/*.md" .&&. complement "site/index.md" .&&. complement "site/projects.md") $ do
         route   $ gsubRoute "site/" (const "") `composeRoutes` setExtension "html"
         compile $ do
             projects <- loadAll ("site/projects/*" .&&. hasVersion "meta")

@@ -1,0 +1,16 @@
+{
+  "name": "rokokot-website-dev",
+  "version": "0.0.1",
+  "description": "dev env for personal portfolio website",
+  "scripts": {
+    "dev": "concurrently \"npm run hakyll\" \"npm run browser-sync\"",
+    "hakyll": "cabal run rokokot-site watch",
+    "browser-sync": "browser-sync start --proxy localhost:8000 --files '_site/**/*' --port 3000 --no-open",
+    "build": "cabal run rokokot-site build",
+    "clean": "cabal run rokokot-site clean"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.27.0",
+    "concurrently": "^7.0.0"
+  }
+}
