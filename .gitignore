@@ -1,18 +1,29 @@
+# Hakyll build outputs
 _site/
+_cache/
+
+# Haskell build artifacts  
 .stack-work/
 .cabal-sandbox/
 cabal.sandbox.config
-*.hi
-*.o
-*.cabal
 dist/
 dist-newstyle/
-.stack-work/
-_cache/
+*.hi
+*.o
+
+# Node.js
+node_modules/
+npm-debug.log*
+package-lock.json
+
+# Development tools
+/.claude
 *.log
-Thumbs.db
-*.sublime-*
-.idea/
-*.swp
-*.swp
 .vscode/
+.idea/
+*.sublime-*
+*.swp
+
+# OS files
+Thumbs.db
+.DS_Store

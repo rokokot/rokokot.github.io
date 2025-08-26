@@ -1,0 +1,29 @@
+name:                rokokot-site
+version:             0.1.0.0
+synopsis:            Personal academic website built with Hakyll
+description:         A personal academic portfolio website for Robin Kokot, 
+                     built using Hakyll static site generator. Features 
+                     research projects, publications, and academic profile.
+homepage:            https://github.com/rokokot/rokokot.github.io
+license:             BSD3
+license-file:        LICENSE
+author:              Robin Kokot
+maintainer:          robin.edu.hr@gmail.edu
+copyright:           2025 Robin Kokot
+category:            Web
+build-type:          Simple
+extra-source-files:  README.md
+cabal-version:       >=1.10
+
+source-repository head
+  type:     git
+  location: https://github.com/rokokot/rokokot.github.io
+
+executable rokokot-site
+  main-is:             Main.hs
+  hs-source-dirs:      src
+  default-language:    Haskell2010
+  ghc-options:         -threaded
+  build-depends:       base >= 4.7 && < 5,
+                       hakyll >= 4.15 && < 4.17,
+                       pandoc >= 2.0 && < 4.0

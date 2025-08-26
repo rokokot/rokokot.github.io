@@ -10,7 +10,7 @@
     "clean": "cabal run rokokot-site clean"
   },
   "devDependencies": {
-    "browser-sync": "^2.27.0",
+    "browser-sync": "^3.0.4",
     "concurrently": "^7.0.0"
   }
 }

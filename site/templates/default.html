@@ -3,34 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Robin Kokot - PhD Student in Artificial Intelligence at KU Leuven">
+    <meta name="author" content="Robin Kokot">
+    <meta name="keywords" content="artificial intelligence, natural language processing, KU Leuven, research, academia">
+    
     <title>$site_name$ - $title$</title>
-    <link rel="stylesheet" href="/css/main.css">
+    
+    <!-- Academic Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Academic Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    
+    <!-- Styles -->
     <link rel="stylesheet" href="/css/academic.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    <nav class="navbar">
-        <a href="/" class="logo">$site_name$</a>
-        <ul class="main-nav" id="main-nav">
-            <li><a href="./" class="nav-links">Home</a></li>
-            <li><a href="/research.html" class="nav-links">Research</a></li>
-            <li><a href="/projects.html" class="nav-links">Projects</a></li>
-            <li><a href="/publications.html" class="nav-links">Publications</a></li>
-            <li><a href="/files/CV.pdf" class="nav-links">CV</a></li>
-        </ul>
-    </nav>
+    <!-- Header Navigation -->
+    <header class="site-header">
+        <div class="header-container">
+            <a href="/" class="site-title">$site_name$</a>
+            <nav>
+                <ul class="site-nav" id="main-nav">
+                    <li><a href="/">About</a></li>
+                    <li><a href="/research.html">Research</a></li>
+                    <li><a href="/publications.html">Publications</a></li>
+                    <li><a href="/projects.html">Projects</a></li>
+                    <li><a href="/files/cv.pdf" target="_blank">CV</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
 
-    <main>
+    <!-- Main Content -->
+    <main class="site-container">
         $body$
     </main>
 
-    <footer>
+    <!-- Footer -->
+    <footer class="site-footer">
         <div class="footer-content">
             <div class="footer-copyright">
-                <p>&copy; 2025 Robin Kokot</p>
+                <p>&copy; 2025 $site_name$</p>
             </div>
             <div class="footer-social">
-                <a href="https://github.com/rokokot" title="GitHub" target="_blank">
+                <a href="https://github.com/$github_username$" target="_blank" title="GitHub">
                     <i class="fab fa-github"></i>
                 </a>
             </div>
@@ -39,12 +63,32 @@
             </div>
         </div>
     </footer>
-    
+
+    <!-- Scripts -->
     <script>
-        document.getElementById('navbar-toggle').addEventListener('click', function() {
-            document.getElementById('main-nav').classList.toggle('active');
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mainNav = document.getElementById('main-nav');
+            
+            if (mobileMenuBtn && mainNav) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mainNav.classList.toggle('mobile-active');
+                    const icon = this.querySelector('i');
+                    if (mainNav.classList.contains('mobile-active')) {
+                        icon.className = 'fas fa-times';
+                    } else {
+                        icon.className = 'fas fa-bars';
+                    }
+                });
+                
+                mainNav.addEventListener('click', function(e) {
+                    if (e.target.tagName === 'A') {
+                        mainNav.classList.remove('mobile-active');
+                        mobileMenuBtn.querySelector('i').className = 'fas fa-bars';
+                    }
+                });
+            }
         });
     </script>
-    <script src="/js/academic.js"></script>
 </body>
 </html>
