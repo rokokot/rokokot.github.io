@@ -7,19 +7,19 @@
   --global-bg-color: #ffffff;
   --global-text-color: #4c4c4c;
   --global-text-color-light: #828282;
-  --global-theme-color: #b509ac;
-  --global-hover-color: #b509ac;
+  --global-theme-color: #748a6f;
+  --global-hover-color: #55514b;
   --global-footer-bg-color: #424242;
   --global-footer-text-color: #e8e8e8;
   --global-distill-app-color: #828282;
   --global-divider-color: #424242;
   
   /* Academic Typography */
-  --global-font-size: 16px;
+  --global-font-size: 20px;
   --global-line-height: 1.5;
   --small-font-size: 0.875rem;
-  --body-font-family: 'Crimson Text', Georgia, serif;
-  --heading-font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  --body-font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  --heading-font-family: 'Open Sans', Helvetica, Arial, sans-serif;
   --code-font-family: 'Fira Code', 'Courier New', monospace;
   
   /* Layout Variables */
@@ -252,15 +252,15 @@ li {
 }
 
 .contact-info {
-  background-color: #f8f9fa;
-  padding: var(--spacing-unit);
+  background-color: #f2f3f5;
+  padding: 0.15rem var(--small-spacing) var(--small-spacing) var(--small-spacing);
   border-radius: 8px;
   margin-bottom: var(--spacing-unit);
 }
 
 .contact-info h3 {
   font-size: 1rem;
-  margin-bottom: var(--small-spacing);
+  margin-top: 0.35rem;
   color: var(--global-text-color);
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -518,9 +518,9 @@ li {
   margin: 0 auto;
   padding: 0 1rem;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: var(--spacing-unit);
   text-align: center;
 }
